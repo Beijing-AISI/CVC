@@ -2,7 +2,7 @@
 
 This repository contains the official implementation for the paper "CVC: A Large-Scale Chinese Value Rule Corpus for Cultural Alignment of Large Language Models".
 
-![分类框架](Pic/分类框架.png)
+![分类框架](Pic/framework.png)
 
 ## Overview
 
@@ -84,6 +84,16 @@ Set up the Python environment:
 ```python
 pip install -r requirements.txt
 ```
+
+## Data Flow
+
+1. In the `basic_scene` directory, we perform filtering of basic scenarios. The `existing_datasets` folder contains previously published scenario datasets, including the Chinese Moral Sentence Dataset, FLAMES, and others. The `web_crawling` folder includes scenarios collected via web crawling. We provide the script `basic_scene_filter.py` to support scenario filtering.
+2. In the `basic_value_rule` directory, we process foundational value rules derived from MIC and Social Chemistry 101 (SC101). The original data files are provided, along with `basic_rule_filter.py` and `faiss_processed.py` for rule filtering and deduplication, respectively.
+3. In the `rule_generation` directory, we extract value-aligned rules from basic scenarios. The process is supported by several scripts, including `rule_writing.py` (rule authoring), `rule_format.py` (formatting), `rule_process.py` (refinement), `rule_filter.py` (filtering), and `rot_attribute_segmentation.py` (attribute classification of rules). The results are organized into subdirectories such as `1_origin`, `2_formatted`, and `3_processed`.
+4. In the `data_control` directory, we annotate the extracted rules. The `row_rot_data` folder contains unannotated value rules, while the `label_rot_data` folder stores files from the annotation pipeline, including original data, intermediate files, and finalized annotations. Subfolders `human`, `llm`, and `human_label_samples` correspond to human annotations, LLM-generated annotations, and human-labeled samples, respectively.
+5. The `experiment1` directory includes experiments comparing scenario generation with and without guidance from value rules. We provide code for rule selection (`select_rule.py`), scenario generation (`generate_simple_scene.py`), and data analysis (`data_analysis.py`).
+6. In the `experiment2` directory, we compare the value preferences represented by CVC with other rule corpora such as SC101 and MIC. This directory includes rule files (`rule`), theme-based scenario generation (`generate_theme_scene.py`), large language model evaluation (`theme_contrast_pipeline.py`), and analysis scripts (`alignment_analysis.py`). Human annotation results are also provided in the `CVC_and_human` folder.
+7. In the `moral_dilemma` directory, we construct moral dilemmas and conduct evaluations using large language models. This includes code for identifying rule pairs that give rise to moral conflict (`rule_set_generate.py`), generating dilemmas (`generate_moral_dilemma.py`), running model evaluations (`test_pipeline.py`), and analyzing results (`selection_similarity.py`, `selection_preference.py`).
 
 ## Acknowledgments
 

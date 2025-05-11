@@ -35,7 +35,7 @@ for val in value_names:
 
 result_df = pd.concat(sampled_cols, axis=1)
 
-out_file = 'sampled_rules.csv'
+out_file = 'rules.csv'
 result_df.to_csv(out_file, index=False, encoding='utf-8')
 
 print(f"抽样结果已保存到: {out_file}")

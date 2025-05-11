@@ -1,26 +1,90 @@
-**CVC（The Chinese Value Corpus）**是一个基于中国文化语境的大规模价值规则集，包含了**超25万条高质量价值规则**。 
+# CVC: A Large-Scale Chinese Value Rule Corpus for Cultural Alignment of Large Language Models
 
-在**basic_value_rule**中我们介绍了对国外规则集SC101和MIC的筛选过程，使用FAISS进行一起去重，使用大模型进行辅助过滤，保留符合中国价值体系的规则。此部分数据总计71,411条规则。
+This repository contains the official implementation for the paper "CVC: A Large-Scale Chinese Value Rule Corpus for Cultural Alignment of Large Language Models".
 
-在**basic_scene**中我们从中国文化语境得到的基础场景进行过滤和筛选，此部分包含三个数据来源：一部分来源于论文数据，如Flames、Chinese Moral Sentence Dataset，一部分来源于现有爬虫数据集，如Zhihu-KOL、people_daily，其他数据均为从知乎、贴吧、人民日报、学习强国等社交平台、官方网址自主爬虫得到。总计获得232,572个基础场景。
+![分类框架](Pic/分类框架.png)
 
-在**rot_generate**中我们通过对比三个主流大模型提取规则的结果，选择了Qwen-2.5-72b辅助提取规则，最终得到190,678条中国价值规则。
+## Overview
 
-对上述从SC101和MIC中获取到的基础价值规则和从本土语境中获取的中国价值规则按照我们定义的三层次分类框架进行分类，得到从抽象到具体的属性值。
+We propose a three-tier value classification framework based on core Chinese values, which includes three dimensions, twelve core values, and fifty derived values. With the assistance of large language models and manual verification, we constructed a large-scale, refined, and high-quality value corpus containing over 250,000 rules. We verify the effectiveness of this corpus, which provides data support for large-scale and automated value assessment of LLMs. 
 
-在**rot_label**中，我们进行了人工精细化标注，雇佣了40名来自计算机和哲学的专家对规则进行标注，必要时对规则进行重写。人类的标注数据为36,000条，其余价值规则均有大模型辅助标注，在标注过程中，随机选取5条对应衍生价值的人类标注规则作为样本输入到大模型中，保证标注的有效性和正确性。
+Main contributions:
 
-最终，我们得到了**包含257,609条高质量的CVC数据集**，基于CVC，我们进行了以下三个实验：
+- **Construction of the first large-scale, refined Chinese Value Corpus (CVC):** Based on the core socialist values, we developed a localized value classification framework covering national, societal, and personal levels, with 12 core values and 50 derived values. Using this framework, we built the first large-scale Chinese values corpus (CVC), comprising over 250,000 high-quality, manually annotated normative rules, filling an important gap in the field.
+- **Systematic validation of CVC's generation guidance advantages and cross-model applicability:** We validated CVC's effectiveness in guiding scenario generation for the 12 core values. Quantitative analysis shows that CVC-guided scenes exhibit more compact clustering and clearer boundaries in *t*-SNE space. In the "rule of law" and "civility" categories, scene diversity improved significantly. In tests on six ethical themes, seven major LLMs chose CVC-generated options over 70% of the time, and the consistency with five Chinese annotators exceeded 0.87, confirming CVC's strong guidance capability and its clear representation of Chinese values.
+- **Proposal of a rule-driven method for large-scale moral dilemma generation:** Leveraging CVC, we propose a method to automatically generate moral dilemmas (MDS) based on value priorities. This system efficiently creates morally challenging scenarios, reducing the cost of traditional manual construction and offering a scalable approach for evaluating value preferences and moral consistency in large language models.
 
-**Experiment one: Impact of CVC Guidance on Scenario Generation** 
+## Folder structure
 
-比较有无CVC规则指导下所生成内容的相关性与多样性，从而验证CVC在提升生成质量、明确价值表达方面的实用价值与优势。对应的实验数据见with_vs_without_cvc文件夹。 
+- huggingface: You can access all the data from the paper at this link.
 
-**Experiment two: Cultural Compatibility of CVC vs. Existing Resources** 
+```bash
+CVC/
+├─basic_scene
+│  ├─existing_datasets
+│  │  ├─Chinese-MOral-Sentence-Dataset
+│  │  ├─Encyclopedia QA (JSON version)
+│  │  ├─Flames
+│  │  ├─people_daily_ner
+│  │  └─Zhihu-KOL
+│  │      ├─filter
+│  │      └─origin
+│  └─web_crawling
+│      ├─1_origin
+│      ├─2_filter
+│      └─3_final
+├─basic_value_rule
+│  ├─mic
+│  └─sc101
+├─data_control
+│  ├─label_rot_data
+│  │  ├─human
+│  │  ├─human_label_samples
+│  │  └─llm
+│  │      └─llm_compare
+│  └─row_rot_data
+├─experiment1
+│  └─100
+├─experiment2
+│  ├─result
+│  │  ├─aihubmix-Llama-3-1-70B-Instruct
+│  │  ├─claude-3-7-sonnet-20250219
+│  │  ├─CVC_and_human
+│  │  ├─DeepSeek-V3
+│  │  ├─Doubao-1.5-pro-256k
+│  │  ├─gemini-1.5-pro
+│  │  ├─gpt-4o
+│  │  └─Qwen2.5-72B-Instruct
+│  ├─rule
+│  └─scene
+├─moral_dilemma
+│  ├─dataset
+│  │  ├─1_rule_set
+│  │  └─2_dilemma
+│  │      ├─1_origin
+│  │      └─2_processed
+│  └─test
+│      └─result
+│          ├─llm_result
+│          └─picture
+├─Pic
+└─rule_generation
+    ├─1_origin
+    ├─2_formatted
+    ├─3_processed
+    ├─4_processed
+    ├─5_filtered
+    └─6_final
+```
 
-选取六个具有中国语境代表性的道德议题，分别结合CVC与SC101、MIC中的价值规则构建评测任务。通过在多个主流大语言模型上的一致性测试，评估不同价值体系所引导场景的文化契合度与规范性表现，从而论证CVC在中文价值对齐任务中的实际优势。对应的实验数据见cvc_vs_others文件夹。 
+## Installation Requirements
 
-**Experiment three: Moral Dilemma Scenarios** 
+Set up the Python environment:
 
-基于CVC规则集，自动生成体现价值抉择的困境型评测场景，用以考察大模型在复杂伦理语境中的价值抉择倾向。对应的实验数据见moral_dilemma文件夹。
+```python
+pip install -r requirements.txt
+```
 
+## Acknowledgments
+
+This research utilized multiple publicly available datasets, including FLAMES, Social Chemistry 101, the Moral Integrity Corpus, the Chinese Moral Sentence Dataset, and the Zhihu-KOL dataset. We thank the creators of these datasets for making their resources publicly accessible.

@@ -6,7 +6,7 @@ This repository contains the official implementation for the paper "CVC: A Large
 
 ## Overview
 
-We propose a three-tier value classification framework based on core Chinese values, which includes three dimensions, twelve core values, and fifty derived values. With the assistance of large language models and manual verification, we constructed a large-scale, refined, and high-quality value corpus containing over 250,000 rules. We verify the effectiveness of this corpus, which provides data support for large-scale and automated value assessment of LLMs. 
+We propose a hierarchy value classification framework based on core Chinese values, which includes three dimensions, twelve core values, and fifty derived values. With the assistance of large language models and manual verification, we constructed a large-scale, refined, and high-quality value corpus containing over 250,000 rules. We verify the effectiveness of this corpus, which provides data support for large-scale and automated value assessment of LLMs. 
 
 Main contributions:
 

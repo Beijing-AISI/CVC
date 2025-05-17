@@ -1,5 +1,4 @@
-# CVC: A Large-Scale Chinese Value Rule Corpus for Cultural Alignment of Large Language Models
-
+![img.png](img.png)
 This repository contains the official implementation for the paper "CVC: A Large-Scale Chinese Value Rule Corpus for Cultural Alignment of Large Language Models".
 
 ![分类框架](Pic/framework.png)

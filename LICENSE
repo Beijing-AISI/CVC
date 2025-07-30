@@ -1,0 +1,57 @@
+ACADEMIC RESEARCH LICENSE (NON-COMMERCIAL)
+Version 1.1 — July 2025
+
+Copyright (c) 2025
+Brain-Inspired Cognitive Intelligence Lab
+Institute of Automation, Chinese Academy of Sciences
+
+1. Grant of License
+The Chinese Value Corpus (CVC) ("Dataset") is licensed under this Academic Research License. Permission is granted solely for non-commercial academic research, including:
+
+Scientific analysis, experimentation, and scholarly publication.
+
+Development of models/algorithms for academic purposes.
+
+Non-profit sharing with academic collaborators.
+
+2. Prohibited Uses
+Explicitly prohibited activities include:
+
+Commercial use (e.g., resale, integration into paid products/services, or monetization).
+
+Military, surveillance, or state-sponsored monitoring applications.
+
+Any use violating ethical guidelines or applicable laws.
+
+3. Attribution Requirements
+All public/published uses must include:
+
+Citation:
+*"Chinese Value Corpus: A Large-Scale Rule Set for Value Alignment of LLMs in Chinese Sociocultural Contexts" (2025).*
+
+Acknowledgment:
+"This research uses data from the Chinese Value Corpus (CVC), provided by the Brain-Inspired Cognitive Intelligence Lab, Institute of Automation, Chinese Academy of Sciences, under the Academic Research License (Non-Commercial)."
+
+4. Redistribution Terms
+Derivative works (e.g., modified/annotated versions):
+
+Must retain this license and clearly document changes.
+
+Raw/unmodified data redistribution:
+
+Requires prior written permission from the licensor.
+
+No claims of original authorship may be made.
+
+5. Third-Party Content Compliance
+The Dataset may incorporate content from platforms (e.g., Zhihu, Tieba) collected per their:
+
+robots.txt policies.
+
+Terms of Service (users assume full liability for compliance).
+
+6. Disclaimer & Liability
+THE DATASET IS PROVIDED "AS IS" WITHOUT WARRANTIES OF ACCURACY, COMPLETENESS, OR FITNESS FOR PURPOSE. THE LICENSOR DISCLAIMS ALL LIABILITY FOR DAMAGES ARISING FROM ITS USE.
+
+7. Termination
+Violation of these terms automatically terminates all rights granted herein.

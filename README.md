@@ -98,3 +98,6 @@ pip install -r requirements.txt
 ## Acknowledgments
 
 This research utilized multiple publicly available datasets, including FLAMES, Social Chemistry 101, the Moral Integrity Corpus, the Chinese Moral Sentence Dataset, and the Zhihu-KOL dataset. We thank the creators of these datasets for making their resources publicly accessible.
+
+## License  
+This dataset is available for non-commercial academic research under the [Academic Research License](LICENSE). For detailed licensing terms of third-party data, see the [Third-Party Data Licenses](SOURCES.md) section.

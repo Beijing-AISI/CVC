@@ -1,5 +1,4 @@
 ## Third-Party Data Licenses
-
 The following third-party datasets are used in this work under their respective licenses:
 
 ---

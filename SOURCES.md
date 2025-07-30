@@ -21,7 +21,7 @@ The following third-party datasets are used in this work under their respective 
 
 ---
 
-**Zhihu-KOL Dataset**
+**Zhihu-KOL**
 
 **License:** [MIT License](https://mit-license.org/)  
 **Permissions:**  
@@ -29,7 +29,7 @@ The following third-party datasets are used in this work under their respective 
 
 ---
 
-**People Daily News Corpus**
+**People Daily**
 
 **License:** [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)  
 **Restrictions:**  
@@ -38,7 +38,7 @@ The following third-party datasets are used in this work under their respective 
 
 ---
 
-**Flames Dataset**
+**Flames**
 
 **License:** [BSD 3-Clause](https://github.com/AI45Lab/Flames/blob/main/LICENSE)  
 **Permissions:**  
@@ -54,7 +54,15 @@ The following third-party datasets are used in this work under their respective 
 
 ---
 
-**Web-Crawled Data**
+**Chinese Moral Sentence Dataset**
+
+**License:** [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)  
+**Restrictions:**  
+- Non-commercial academic use with share-alike
+
+---
+
+**Web Spider**
 **Sources:**  
 - Zhihu  
 - Tieba  

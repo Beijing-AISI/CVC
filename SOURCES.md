@@ -2,7 +2,7 @@
 
 The following third-party datasets are used in this work under their respective licenses:
 
-- - -
+---
 
 **SOCIAL CHEMISTRY 101 (SC101)**
 

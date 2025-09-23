@@ -1,6 +1,4 @@
-![image-20250619153329802](Pic/paper.png)
-
-This repository contains the official implementation for the paper "CVC: A Large-Scale Chinese Value Rule Corpus for Cultural Alignment of Large Language Models".
+This repository contains the official implementation for the paper "**C-VARC: A Large-Scale Chinese Value And Rule Corpus for Value Alignment of Large Language Models**".
 
 ![分类框架](Pic/framework.png)
 
@@ -10,16 +8,16 @@ We propose a hierarchy value classification framework based on core Chinese valu
 
 Main contributions:
 
-- **Construction of the first large-scale, refined Chinese Value Corpus (CVC):** Based on the core socialist values, we developed a localized value classification framework covering national, societal, and personal levels, with 12 core values and 50 derived values. Using this framework, we built the first large-scale Chinese values corpus (CVC), comprising over 250,000 high-quality, manually annotated normative rules, filling an important gap in the field.
-- **Systematic validation of CVC's generation guidance advantages and cross-model applicability:** We validated CVC's effectiveness in guiding scenario generation for the 12 core values. Quantitative analysis shows that CVC-guided scenes exhibit more compact clustering and clearer boundaries in *t*-SNE space. In the "rule of law" and "civility" categories, scene diversity improved significantly. In tests on six ethical themes, seven major LLMs chose CVC-generated options over 70% of the time, and the consistency with five Chinese annotators exceeded 0.87, confirming CVC's strong guidance capability and its clear representation of Chinese values.
-- **Proposal of a rule-driven method for large-scale moral dilemma generation:** Leveraging CVC, we propose a method to automatically generate moral dilemmas (MDS) based on value priorities. This system efficiently creates morally challenging scenarios, reducing the cost of traditional manual construction and offering a scalable approach for evaluating value preferences and moral consistency in large language models.
+- **Construction of the first large-scale, refined Chinese Value And Rule Corpus (C-VARC):** Based on the core socialist values, we developed a localized value classification framework covering national, societal, and personal levels, with 12 core values and 50 derived values. Using this framework, we built the first large-scale Chinese Value And Rule Corpus (C-VARC), comprising over 250,000 high-quality, manually annotated normative rules, filling an important gap in the field.
+- **Systematic validation of C-VARC's generation guidance advantages and cross-model applicability:** We validated C-VARC's effectiveness in guiding scenario generation for the 12 core values. Quantitative analysis shows that C-VARC guided scenes exhibit more compact clustering and clearer boundaries in *t*-SNE space. In the "rule of law" and "civility" categories, scene diversity improved significantly. In tests on six ethical themes, seven major LLMs chose C-VARC generated options over 70% of the time, and the consistency with five Chinese annotators exceeded 0.87, confirming C-VARC's strong guidance capability and its clear representation of Chinese values.
+- **Proposal of a rule-driven method for large-scale moral dilemma generation:** Leveraging C-VARC, we propose a method to automatically generate moral dilemmas (MDS) based on value priorities. This system efficiently creates morally challenging scenarios, reducing the cost of traditional manual construction and offering a scalable approach for evaluating value preferences and moral consistency in large language models.
 
 ## Folder structure
 
 - huggingface: You can access all the data from the paper at this [link](https://huggingface.co/datasets/Beijing-AISI/CVC).
 
 ```bash
-CVC/
+.
 ├─basic_scene
 │  ├─existing_datasets
 │  │  ├─Chinese-MOral-Sentence-Dataset
@@ -92,7 +90,7 @@ pip install -r requirements.txt
 3. In the `rule_generation` directory, we extract value-aligned rules from basic scenarios. The process is supported by several scripts, including `rule_writing.py` (rule authoring), `rule_format.py` (formatting), `rule_process.py` (refinement), `rule_filter.py` (filtering), and `rot_attribute_segmentation.py` (attribute classification of rules). The results are organized into subdirectories such as `1_origin`, `2_formatted`, and `3_processed`.
 4. In the `data_control` directory, we annotate the extracted rules. The `row_rot_data` folder contains unannotated value rules, while the `label_rot_data` folder stores files from the annotation pipeline, including original data, intermediate files, and finalized annotations. Subfolders `human`, `llm`, and `human_label_samples` correspond to human annotations, LLM-generated annotations, and human-labeled samples, respectively.
 5. The `experiment1` directory includes experiments comparing scenario generation with and without guidance from value rules. We provide code for rule selection (`select_rule.py`), scenario generation (`generate_simple_scene.py`), and data analysis (`data_analysis.py`).
-6. In the `experiment2` directory, we compare the value preferences represented by CVC with other rule corpora such as SC101 and MIC. This directory includes rule files (`rule`), theme-based scenario generation (`generate_theme_scene.py`), large language model evaluation (`theme_contrast_pipeline.py`), and analysis scripts (`alignment_analysis.py`). Human annotation results are also provided in the `CVC_and_human` folder.
+6. In the `experiment2` directory, we compare the value preferences represented by C-VARC with other rule corpora such as SC101 and MIC. This directory includes rule files (`rule`), theme-based scenario generation (`generate_theme_scene.py`), large language model evaluation (`theme_contrast_pipeline.py`), and analysis scripts (`alignment_analysis.py`). Human annotation results are also provided in the `CVC_and_human` folder.
 7. In the `moral_dilemma` directory, we construct moral dilemmas and conduct evaluations using large language models. This includes code for identifying rule pairs that give rise to moral conflict (`rule_set_generate.py`), generating dilemmas (`generate_moral_dilemma.py`), running model evaluations (`test_pipeline.py`), and analyzing results (`selection_similarity.py`, `selection_preference.py`).
 
 ## Acknowledgments

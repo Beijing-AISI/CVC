@@ -6,7 +6,7 @@ This repository contains the official implementation for the paper "**C-VARC: A 
 
 We propose a hierarchy value classification framework based on core Chinese values, which includes three dimensions, twelve core values, and fifty derived values. With the assistance of large language models and manual verification, we constructed a large-scale, refined, and high-quality value corpus containing over 250,000 rules. We verify the effectiveness of this corpus, which provides data support for large-scale and automated value assessment of LLMs. 
 
-Main contributions:
+**Main contributions**:
 
 - **Construction of the first large-scale, refined Chinese Value And Rule Corpus (C-VARC):** Based on the core socialist values, we developed a localized value classification framework covering national, societal, and personal levels, with 12 core values and 50 derived values. Using this framework, we built the first large-scale Chinese Value And Rule Corpus (C-VARC), comprising over 250,000 high-quality, manually annotated normative rules, filling an important gap in the field.
 - **Systematic validation of C-VARC's generation guidance advantages and cross-model applicability:** We validated C-VARC's effectiveness in guiding scenario generation for the 12 core values. Quantitative analysis shows that C-VARC guided scenes exhibit more compact clustering and clearer boundaries in *t*-SNE space. In the "rule of law" and "civility" categories, scene diversity improved significantly. In tests on six ethical themes, seven major LLMs chose C-VARC generated options over 70% of the time, and the consistency with five Chinese annotators exceeded 0.87, confirming C-VARC's strong guidance capability and its clear representation of Chinese values.
@@ -14,7 +14,9 @@ Main contributions:
 
 ## Folder structure
 
-- huggingface: You can access all the data from the paper at this [link](https://huggingface.co/datasets/Beijing-AISI/C-VARC).
+- **paper**: You can access the paper at this [link](https://arxiv.org/abs/2506.01495).
+
+- **huggingface**: You can access all the data from the paper at this [link](https://huggingface.co/datasets/Beijing-AISI/C-VARC).
 
 ```bash
 .

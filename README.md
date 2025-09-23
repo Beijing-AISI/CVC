@@ -47,7 +47,7 @@ Main contributions:
 │  ├─result
 │  │  ├─aihubmix-Llama-3-1-70B-Instruct
 │  │  ├─claude-3-7-sonnet-20250219
-│  │  ├─CVC_and_human
+│  │  ├─C-VARC_and_human
 │  │  ├─DeepSeek-V3
 │  │  ├─Doubao-1.5-pro-256k
 │  │  ├─gemini-1.5-pro
@@ -90,7 +90,7 @@ pip install -r requirements.txt
 3. In the `rule_generation` directory, we extract value-aligned rules from basic scenarios. The process is supported by several scripts, including `rule_writing.py` (rule authoring), `rule_format.py` (formatting), `rule_process.py` (refinement), `rule_filter.py` (filtering), and `rot_attribute_segmentation.py` (attribute classification of rules). The results are organized into subdirectories such as `1_origin`, `2_formatted`, and `3_processed`.
 4. In the `data_control` directory, we annotate the extracted rules. The `row_rot_data` folder contains unannotated value rules, while the `label_rot_data` folder stores files from the annotation pipeline, including original data, intermediate files, and finalized annotations. Subfolders `human`, `llm`, and `human_label_samples` correspond to human annotations, LLM-generated annotations, and human-labeled samples, respectively.
 5. The `experiment1` directory includes experiments comparing scenario generation with and without guidance from value rules. We provide code for rule selection (`select_rule.py`), scenario generation (`generate_simple_scene.py`), and data analysis (`data_analysis.py`).
-6. In the `experiment2` directory, we compare the value preferences represented by C-VARC with other rule corpora such as SC101 and MIC. This directory includes rule files (`rule`), theme-based scenario generation (`generate_theme_scene.py`), large language model evaluation (`theme_contrast_pipeline.py`), and analysis scripts (`alignment_analysis.py`). Human annotation results are also provided in the `CVC_and_human` folder.
+6. In the `experiment2` directory, we compare the value preferences represented by C-VARC with other rule corpora such as SC101 and MIC. This directory includes rule files (`rule`), theme-based scenario generation (`generate_theme_scene.py`), large language model evaluation (`theme_contrast_pipeline.py`), and analysis scripts (`alignment_analysis.py`). Human annotation results are also provided in the `C-VARC_and_human` folder.
 7. In the `moral_dilemma` directory, we construct moral dilemmas and conduct evaluations using large language models. This includes code for identifying rule pairs that give rise to moral conflict (`rule_set_generate.py`), generating dilemmas (`generate_moral_dilemma.py`), running model evaluations (`test_pipeline.py`), and analyzing results (`selection_similarity.py`, `selection_preference.py`).
 
 ## Acknowledgments

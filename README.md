@@ -14,7 +14,7 @@ Main contributions:
 
 ## Folder structure
 
-- huggingface: You can access all the data from the paper at this [link](https://huggingface.co/datasets/Beijing-AISI/CVC).
+- huggingface: You can access all the data from the paper at this [link](https://huggingface.co/datasets/Beijing-AISI/C-VARC).
 
 ```bash
 .
